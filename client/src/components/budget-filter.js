@@ -34,6 +34,7 @@ class Filter extends Component {
             <option>Fee</option>
             <option>Gas/Car</option>
             <option>Healthcare</option>
+            <option>Income</option>
             <option>Insurance</option>
             <option>Internet</option>
             <option>Merchandise</option>

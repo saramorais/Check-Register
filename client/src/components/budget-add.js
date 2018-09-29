@@ -41,16 +41,17 @@ class BudgetAdd extends Component {
           <p>Add a New Transaction</p>
           <div className='form-row'>
             <form onSubmit={this.handleSubmit} className='form-group'>
-              <input name='transactiondate' type='date' onChange={this.handleChange} placeholder='Date' />
-              <input name='description' type='text' onChange={this.handleChange} placeholder='Description' />
-              <input name='amount' type="number" step="0.01" onChange={this.handleChange} placeholder='Amount' />
-              <select name='category' type='text' onChange={this.handleChange}>
+              <input name='transactiondate' type='date' onChange={this.handleChange} placeholder='Date' className='col-md-2' required />
+              <input name='description' type='text' onChange={this.handleChange} placeholder='Description' className='col-md-2' required />
+              <input name='amount' type="number" step="0.01" onChange={this.handleChange} placeholder='Amount' className='col-md-2' required />
+              <select name='category' type='text' onChange={this.handleChange} className='col-md-2'>
                 <option>Select Category</option>
                 <option>Dining</option>
                 <option>Entertainment</option>
                 <option>Fee</option>
                 <option>Gas/Car</option>
                 <option>Healthcare</option>
+                <option>Income</option>
                 <option>Insurance</option>
                 <option>Internet</option>
                 <option>Merchandise</option>
@@ -62,12 +63,12 @@ class BudgetAdd extends Component {
                 <option>Travel</option>
                 <option>Utilities</option>
               </select>
-              <select name='type' type='text' onChange={this.handleChange}>
+              <select name='type' type='text' onChange={this.handleChange} className='col-md-2'>
                 <option>Select Type</option>
                 <option>Deposit</option>
                 <option>Withdraw</option>
               </select>
-              <button type='submit' className='btn'>ADD</button>
+              <button type='submit' className='btn col-md-2'>ADD</button>
             </form>
           </div>
         </div>

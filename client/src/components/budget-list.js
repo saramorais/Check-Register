@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getTransactions } from '../actions';
 import BudgetAdd from './budget-add';
 import Filter from './budget-filter';
-import _ from 'lodash';
+import Budget from './budget';
 
 class BudgetList extends Component {
 
@@ -22,52 +22,29 @@ class BudgetList extends Component {
 
   renderTransactions() {
     if(this.props.transactions) {
-      return _.map(this.props.transactions, transaction => {
-
-        const date = new Date(transaction.transactiondate);
-        const formatedDate = date.toLocaleDateString("en-US");
-
-        return (
-          <tr key={transaction.id}>
-            <th scope="row">{formatedDate}</th>
-            <td>{transaction.description}</td>
-            <td>{transaction.category}</td>
-            <td>$ {parseFloat(transaction.amount).toFixed(2)}</td>
-            <td>$ {parseFloat(transaction.balance).toFixed(2)}</td>
-          </tr>
-        )
-      });
+      return <Budget transactions={this.props.transactions} />
     } else {
-      return <tr><th>No Transactions Found</th></tr>
+      return <p>No Transactions Found</p>
     }
   }
 
   render() {
     return (
-      <div className='container'>
-        <div className='row'>
-          <div className='current-balance'>
+      <div>
+        <div className='current-balance'>
+          <div className='balance-box'>
             <p>Current Balance</p>
             { this.getBalance() }
           </div>
-          <BudgetAdd />
-          <hr />
-          <Filter />
-          <hr />
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Description</th>
-                <th scope="col">Category</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Balance</th>
-              </tr>
-            </thead>
-            <tbody>
-              { this.renderTransactions() }
-            </tbody>
-          </table>
+        </div>
+        <div className='container'>
+          <div className='row'>
+            <BudgetAdd />
+            <hr />
+            <Filter />
+            <hr />
+            { this.renderTransactions() }
+          </div>
         </div>
       </div>
     )
