@@ -1,3 +1,3 @@
 # Check-Register
 
-https://dashboard.heroku.com/apps/stormy-basin-96083
+https://stormy-basin-96083.herokuapp.com/
